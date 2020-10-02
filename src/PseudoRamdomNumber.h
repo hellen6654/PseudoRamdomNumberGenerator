@@ -1,51 +1,13 @@
+#ifndef PSESUDORANDOM_H
+#define PSESUDORANDOM_H
 #include <cmath>
-/* MultiplicativeCongruentialGenerator */
-// ================================================================= //
-// =========================== MGC ================================= //
-// ================================================================= //
+#include <iostream>
 
-class MCG
+class PsesudoRandom
 {
 private:
     // X_n = a * X_(n-1)  mod m
-
-    unsigned long long _x0 = 0;    //seed
-    unsigned long long _xLast = 0; //last X = X_(n-1)
-    unsigned long long _a;
-    unsigned long long _m;
-
-public:
-    MCG();
-    MCG(unsigned long long, unsigned long long, unsigned long long);
-    ~MCG();
-    double GetNumber();
-};
-MCG::MCG()
-{
-    _a = std::pow(7, 20);
-    _m = std::pow(2, 35) - 31;
-    _x0 = _xLast = 1;
-}
-
-MCG::MCG(unsigned long long m, unsigned long long a, unsigned long long x0) : _m(m), _a(a), _x0(x0), _xLast(x0) {}
-
-MCG::~MCG(){}
-
-double MCG::GetNumber()
-{
-    _xLast = (_a * _xLast) % _m;
-    return _xLast / (double)_m;
-}
-
-// ================================================================= //
-// =========================== LCG ================================= //
-// ================================================================= //
-
-class LCG
-{
-private:
-    // X_n = a * X_(n-1)  mod m
-
+    // X_n = (a * X_(n-1)+c)  mod m
     unsigned long long _x0 = 0;    //seed
     unsigned long long _xLast = 0; //last X = X_(n-1)
     unsigned long long _a;
@@ -53,26 +15,51 @@ private:
     unsigned long long _c;
 
 public:
-    LCG();
-    LCG(unsigned long long, unsigned long long, unsigned long long, unsigned long long);
-    ~LCG();
-    double GetNumber();
+    PsesudoRandom();                                                                               // defaut mcg or lcg
+    PsesudoRandom(unsigned long long, unsigned long long, unsigned long long);                     //mcg
+    PsesudoRandom(unsigned long long, unsigned long long, unsigned long long, unsigned long long); //lcg
+    ~PsesudoRandom();
+    double GetMcgOfRamdom();
+    double GetMcgOfRamdom(double, double);
+    double GetLcgOfRamdom();
+    double GetLcgOfRamdom(double, double);
 };
-LCG::LCG()
+PsesudoRandom::PsesudoRandom()
 {
-    _a = std::pow(7, 20);
+    _a = std::pow(5, 5);
     _m = std::pow(2, 35) - 31;
-    _x0 = _xLast = 1;
+    _x0 = _xLast = 87;
     _c = 150889;
 }
 
-LCG::LCG(unsigned long long m, unsigned long long a, unsigned long long x0, unsigned long long c) 
-                                                            : _m(m), _a(a), _x0(x0), _xLast(x0), _c(c) {}
+PsesudoRandom::PsesudoRandom(unsigned long long m, unsigned long long a, unsigned long long x0)
+    : _m(m), _a(a), _x0(x0), _xLast(x0), _c(150889) {}
 
-LCG::~LCG(){}
+PsesudoRandom::PsesudoRandom(unsigned long long m, unsigned long long a, unsigned long long x0, unsigned long long c)
+    : _m(m), _a(a), _x0(x0), _xLast(x0), _c(c) {}
 
-double LCG::GetNumber()
+PsesudoRandom::~PsesudoRandom() {}
+
+double PsesudoRandom::GetMcgOfRamdom()
 {
-    _xLast = (_a * _xLast + _c) % _m;
+    _xLast = (_a * _xLast) % _m;
     return _xLast / (double)_m;
 }
+
+double PsesudoRandom::GetMcgOfRamdom(double amplification, double bias)
+{
+    _xLast = (_a * _xLast) % _m;
+    return (_xLast / (double)_m) * amplification + bias;
+}
+double PsesudoRandom::GetLcgOfRamdom()
+{
+    _xLast = (_a * _xLast+_c) % _m;
+    return _xLast / (double)_m;
+}
+
+double PsesudoRandom::GetLcgOfRamdom(double amplification, double bias)
+{
+    _xLast = (_a * _xLast + _c) % _m;
+    return (_xLast / (double)_m) * amplification + bias;
+}
+#endif

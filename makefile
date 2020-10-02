@@ -2,7 +2,7 @@
 
 all: dirs main
 
-main: src/main.cpp src/PseudoRamdomNumber.h 
+main: src/main.cpp src/PseudoRamdomNumber.h  src/first.cpp src/second.cpp src/third.cpp src/fourth.cpp
 	g++ src/main.cpp -o bin/main
 
 dirs:

@@ -1,12 +1,16 @@
-#include <iostream>
-#include "PseudoRamdomNumber.h"
-using namespace std;
+#include "first.cpp"
+#include "second.cpp"
+#include "third.cpp"
+#include "fourth.cpp"
 
 int main()
 {
-    MCG mcg;
-    for(int i = 0; i<5;i++)
-    {
-        cout << mcg.GetNumber() << endl;
-    }
+    first(10000);
+    cout << "================" <<endl;
+    second(10000);
+    cout << "================" <<endl;
+    third(10000);
+    cout << "================" <<endl;
+    fourth(10000);
 }
+
