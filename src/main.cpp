@@ -1,16 +1,16 @@
-#include "first.cpp"
-#include "second.cpp"
-#include "third.cpp"
-#include "fourth.cpp"
+#include <iostream>
+#include "hw2/first.cpp"
+
+using namespace std;
 
 int main()
 {
-    first(10000);
+    first(100000);
     cout << "================" <<endl;
-    second(10000);
+    
     cout << "================" <<endl;
-    third(10000);
+    
     cout << "================" <<endl;
-    fourth(10000);
+    
 }
 

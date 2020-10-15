@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "PseudoRamdomNumber.h"
+#include "../PseudoRamdomNumber.h"
 using namespace std;
 
 char checkTorH(double num)

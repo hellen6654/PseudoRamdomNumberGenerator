@@ -1,5 +1,5 @@
 #include <iostream>
-#include "PseudoRamdomNumber.h"
+#include "../PseudoRamdomNumber.h"
 using namespace std;
 
 void CalcTossPoint(PsesudoRandom *PsesudoRandom, int *diePoint)
