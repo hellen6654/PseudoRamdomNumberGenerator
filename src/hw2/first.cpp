@@ -13,13 +13,13 @@ void first(double n)
     int times[10]={0};
     for (int i = 0; i < n; i++)
     {
-        double number = mcg.GetMcgOfRamdom(10,0);
+        double number = mcg.GetMcgOfRamdom();
         seq.push_back(number);
-        times[(int)number]++;
+        times[(int)(number*10)]++;
     }
     for (int i = 0; i < 10; i++)
     {
-        cout << i<<"-"<<i+1<<": "<<times[i]/n << endl;
+        cout << i/10.0<<"-"<<(i+1)/10.0<<": "<<times[i]/n << endl;
     }
     /*B */
     double total=0.0;
@@ -31,6 +31,7 @@ void first(double n)
     {
         var+= pow((it-mean),2);
     }
-    var /= (n-1);
+    var = var / (n-1);
+    cout << "mean:" << mean << endl;
     cout << "var:" << var << endl;
 }
