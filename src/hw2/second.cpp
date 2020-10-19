@@ -38,16 +38,16 @@ void second(double n)
 
     /*B */
     double mean = 0.0, var = 0.0;
-    for (auto it : times)
+    for (auto it : T)
     {
-        mean += it/n;
+        mean += it;
     }
-    mean /= 30;
-    for (auto it : times)
+    mean /= n;
+    for (auto it : T)
     {
-        var += pow(it/n - mean, 2);
+        var += pow(it - mean, 2);
     }
-    var /= (30 - 1);
+    var /= n;
     cout << "mean: " << mean << endl;
     cout << "vari: " << var << endl;
 }
