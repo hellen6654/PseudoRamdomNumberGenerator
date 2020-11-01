@@ -1,32 +1,18 @@
 #include <iostream>
-#include "hw2/first.cpp"
-#include "hw2/second.cpp"
-#include "hw2/third.cpp"
-#include "hw2/fourth.cpp"
+#include "hw3/hw3.cpp"
 
 using namespace std;
 
 int main()
 {
     cout << "=====first======" <<endl;
-    cout << "=====10000======" <<endl;
-    first(10000);
-    cout << "=====50000======" << endl;
-    first(50000);
-    cout << "====100000======" <<endl;
-    first(100000);
-    cout << "================" <<endl;
+    //first(10000,0.1);
+    //first(50000,0.1);
+    //first(100000,0.1);
     cout << "=====second=====" <<endl;
-    cout << "======5000======" <<endl;
-    second(5000);
-    cout << "=====second=====" <<endl;
-    cout << "=====10000======" <<endl;
-    second(10000);
-    cout << "=====second=====" <<endl;
-    cout << "=====50000======" <<endl;
-    second(50000);
+    //second(3,5);
     cout << "=====third======" <<endl;
-    third(1000000000);
+    //third();
     cout << "=====fourth=====" <<endl;
     fourth();
 }

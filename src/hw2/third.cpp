@@ -60,10 +60,12 @@ void third(unsigned interval)
             circlePointNum++;
         pi = 4.0 * circlePointNum / squarePointNum;
 
-        if ((i+1) % 100000000 == 0)
+        if ((i + 1) % 90000000 == 0)
         {
-            cout <<"After " << squarePointNum << "/"<< interval << " times calc:" << endl;
+            cout << "After " << squarePointNum << "/" << interval << " times calc:";
             cout << pi << endl;
         }
     }
+    cout << "After " << squarePointNum << "/" << interval << " times calc:";
+    cout << pi << endl;
 }

@@ -1,6 +1,6 @@
-.PHONY: dirs clean hw1 hw2
+.PHONY: dirs clean hw1 hw2 hw3
 
-all: dirs hw2
+all: dirs hw3
 
 main: src/main.cpp src/PseudoRamdomNumber.h 
 	g++ src/main.cpp -o bin/main
@@ -9,6 +9,9 @@ hw1: src/main.cpp src/PseudoRamdomNumber.h src/hw1/first.cpp src/hw1/second.cpp 
 	g++ src/main.cpp -o bin/main
 
 hw2: src/main.cpp src/PseudoRamdomNumber.h src/hw2/first.cpp src/hw2/second.cpp src/hw2/third.cpp src/hw2/fourth.cpp
+	g++ src/main.cpp -o bin/main
+
+hw3: src/main.cpp src/PseudoRamdomNumber.h src/hw3/hw3.cpp
 	g++ src/main.cpp -o bin/main
 
 dirs:
