@@ -48,7 +48,7 @@ void first(double n, double lambda)
 
 void second(double meanA, double meanB)
 {
-    double n = 10000000;
+    double n = 100000;
     PsesudoRandom lcg;
     double lambdaA = 1 / meanA;
     double lambdaB = 1 / meanB;
@@ -61,6 +61,7 @@ void second(double meanA, double meanB)
         if (B < A) // B的間隔時間比A的間隔時間還小 => B比A早發生
             times++;
     }
+    cout << "n:" << n << endl;
     cout << times / n << endl;
 }
 
@@ -95,7 +96,7 @@ int checkConsecutive(vector<int> x)
 {
     for (int m = 0; m < 6; m++)
     {
-        for (int n = 0; n < 6; n++)
+        for (int n = m; n < 6; n++)
         {
             if (x[m] + 1 == x[n] || x[m] - 1 == x[n])
             {
@@ -104,22 +105,12 @@ int checkConsecutive(vector<int> x)
             }
         }
     }
-
-    // for (int m = 0; m < 6; m++)
-    // {
-    //         if (abs(x[m] - x[m+1]) == 1)
-    //         {
-    //             //有連續
-    //             return 1;
-    //         }
-        
-    // }
     return 0;
 }
 
 void fourth()
 {
-    double n = 10000;
+    double n = 100000;
     PsesudoRandom mcg;
     int times = 0;
     for (int i = 0; i < n; i++)
